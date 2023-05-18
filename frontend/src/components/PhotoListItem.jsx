@@ -3,8 +3,22 @@ import React from 'react';
 
 import '../styles/PhotoListItem.scss';
 
-const PhotoListItem = () => {
+const PhotoListItem = (props) => {
   /* Insert React */
+  return (
+  <div key={props.id} className='photo-list--item'>
+    <img className='photo-list--image' src={props.imageSource} alt={props.username} />
+    {props.hideUserName ? "" : 
+      <div className='photo-list--user-details'>
+        <img className='photo-list--user-profile' src={props.imageSource} alt={props.username} />
+        <div className='photo-list--user-info'>
+          <div>{props.username}</div>
+          <div className='photo-list--user-location'>city, country</div>
+        </div>
+    </div>
+    }
+  </div>
+  )
 }
 
 PhotoListItem.defaultProps = {
