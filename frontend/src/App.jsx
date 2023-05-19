@@ -1,12 +1,16 @@
 import React from 'react';
 
-import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
+import './styles/PhotoList.scss';
+import TopicList from './components/TopicList';
 
 // Note: Rendering a single component to build components in isolation
+
+
 const App = () => (
+
   <div className="App">
-    <PhotoListItem/>
+     <TopicList/>
   </div>
 )
 
