@@ -4,10 +4,20 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-  const photos = props.photos;
+  const photos = props.photos.map((photo) => {
+    return (
+      <PhotoListItem 
+      key={photo.id} 
+      username={photo.username}
+      imageSource={photo.imageSource}
+      hideUserName={photo.hideUserName}
+      id={photo.id}
+      />
+    )
+  });
   return(
     <ul className="photo-list">
-    { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) }
+    { photos }
   </ul>
   )
 }
