@@ -2,7 +2,8 @@ import React from 'react';
 
 import './App.scss';
 import './styles/PhotoList.scss';
-import TopicList from './components/TopicList';
+import TopNavigation from './components/TopNavigationBar';
+
 
 // Note: Rendering a single component to build components in isolation
 
@@ -10,7 +11,7 @@ import TopicList from './components/TopicList';
 const App = () => (
 
   <div className="App">
-     <TopicList/>
+     <TopNavigation/>
   </div>
 )
 

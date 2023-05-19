@@ -3,12 +3,14 @@ import React from 'react';
 import '../styles/TopicList.scss';
 import TopicListItem from './TopicListItem';
 
+
 const TopicList = () => {
   return (
   <div className="top-nav-bar--topic-list">
     <TopicListItem/>
     <TopicListItem/>
     <TopicListItem/>
+  
   </div>
   )
 }
