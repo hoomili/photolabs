@@ -1,45 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import '../styles/TopicList.scss';
 import TopicListItem from './TopicListItem';
+import { photoLabContext } from '../Context';
 
 
-const TopicList = (props) => {
-  const topics = props.topics.map((topic) => {
+const TopicList = () => {
+
+  const{ topics }= useContext(photoLabContext);
+
+  const newTopics = topics.map((topic) => {
+
     return (
       <TopicListItem 
         key={topic.id} 
-        label={topic.label}
+        title={topic.title}
         id={topic.id}
-        link={topic.link}
+        slug={topic.slug}
       />
     )
   });
   return (
   <div className="top-nav-bar--topic-list">
-    { topics }
-  
+    { newTopics }
   </div>
   )
 }
 
-TopicList.defaultProps = {
-  topics: [
-    {
-      id: 1,
-      label: 'Nature',
-      link: 'link placeholder' 
-    },
-    { 
-      id: 2, 
-      label: 'Food',
-      link: 'link placeholder' 
-    },
-    {
-      id: 3,
-      label: 'People',
-      link: 'link placeholder' 
-    },
-  ]
-}
 export default TopicList

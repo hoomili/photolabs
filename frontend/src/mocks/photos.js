@@ -19,7 +19,7 @@ const photo1 = {
 const photo2 = {
   "id": "2",
   "location": {
-    "city": "Montreal",
+    "city": "Vancouver",
     "country": "Canada"
   },
   "urls": {
@@ -182,7 +182,7 @@ const photo10 = {
 
 
 
-const mockPhotos = [
+const photos = [
   {
     ...photo1,
     similar_photos: {
