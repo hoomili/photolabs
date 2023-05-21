@@ -1,12 +1,11 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useState } from 'react';
 
 import { FavIcon } from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-import { favoriteCounter } from '../Context';
 
-function PhotoFavButton() {
+function PhotoFavButton(props) {
   const [favorite, setFavorite] = useState(false)
-  const { countFavClick } = useContext(favoriteCounter)
+  const { countFavClick } = props;
   const favoriteChange = () => {
     setFavorite(!favorite)
     countFavClick(favorite)

@@ -1,29 +1,25 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
-import { photoLabContext } from '../Context';
 
-const PhotoList = () => {
-  const{ photos }= useContext(photoLabContext);
-  console.log(photos);
+const PhotoList = (props) => {
+  const{ photos }= props;
 
   const newPhotos = photos.map((photo) => {
     return (
       <PhotoListItem 
-      key={photo.id} 
-      user={photo.user}
-      imageSource={photo.urls}
-      hideUserName={photo.hideUserName}
-      id={photo.id}
-      location={photo.location}
+      key={photo.id}
+      photo = {photo}
+      countFavClick= {props.countFavClick}
+      toggleModal={props.toggleModal}
       />
     )
   });
   return(
     <ul className="photo-list">
     { newPhotos }
-  </ul>
+    </ul>
   )
 }
 

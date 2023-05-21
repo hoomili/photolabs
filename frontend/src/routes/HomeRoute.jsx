@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { favoriteCounter } from '../Context';
+import React, {useState} from 'react';
 
 import '../styles/HomeRoute.scss';
 import TopNavigation from '../components/TopNavigationBar';
@@ -23,10 +22,10 @@ const HomeRoute = (props) => {
 
   return (
   <div className="home-route">
-    <favoriteCounter.Provider value = {{countFavClick}}>
-      <TopNavigation isFavPhotoExist = {isFavPhotoExist} />
-      <PhotoList />
-    </favoriteCounter.Provider>
+
+      <TopNavigation isFavPhotoExist = {isFavPhotoExist} topics={props.topics} />
+      <PhotoList countFavClick= {countFavClick} photos={props.photos} toggleModal={props.toggleModal} />
+
   </div>
   )
 }

@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
-import { photoLabContext } from './Context';
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
 
 
 // Note: Rendering a single component to build components in isolation
 
 const App = () => {
+  const [modal, setModal] = useState(false);
+  const [modalPhoto, setModalPhoto] = useState();
+  const toggleModal = (whichPhoto) => {
+    setModal(!modal)
+    setModalPhoto(whichPhoto);
+  }
+
   return (
-    <photoLabContext.Provider value={{topics, photos}}>
       <div className="App">
-        <HomeRoute/>
+        <HomeRoute topics={topics} photos={photos} toggleModal={toggleModal}/>
+        <PhotoDetailsModal modal = {modal} modalPhoto = {modalPhoto}/>
       </div>
-    </photoLabContext.Provider>
+
   );
 };
 

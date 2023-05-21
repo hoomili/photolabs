@@ -1,21 +1,22 @@
-import {useState} from 'react';
 import React from 'react';
 
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
+  const{ toggleModal }= props;
+  const {photo} = props;
 
   return (
-  <li key={props.id} className='photo-list--item' >
-    <PhotoFavButton/>
-    <img className='photo-list--image' src={props.imageSource.full} alt={props.user.username} />
-    {props.hideUserName ? "" : 
+  <li key={photo.id} className='photo-list--item' onClick={() => toggleModal(photo)}>
+    <PhotoFavButton countFavClick= {props.countFavClick}/>
+    <img className='photo-list--image' src={photo.urls.full} alt={photo.user.username} />
+    {photo.hideUserName ? "" : 
       <div className='photo-list--user-details'>
-        <img className='photo-list--user-profile' src={props.user.profile} alt={props.user.name} />
+        <img className='photo-list--user-profile' src={photo.user.profile} alt={photo.user.name} />
         <div className='photo-list--user-info'>
-          <div>{props.user.name}</div>
-          <div className='photo-list--user-location'>{props.location.city}, {props.location.country}</div>
+          <div>{photo.user.name}</div>
+          <div className='photo-list--user-location'>{photo.location.city}, {photo.location.country}</div>
         </div>
     </div>
     }
