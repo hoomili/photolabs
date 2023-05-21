@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import '../styles/TopicList.scss';
 import TopicListItem from './TopicListItem';
-import { photoLabContext } from '../Context';
 import FavBadge from './FavBadge';
 
 
 const TopicList = (props) => {
 
-  const{ topics }= useContext(photoLabContext);
+  const{ topics }= props;
 
   const newTopics = topics.map((topic) => {
 

@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss';
 import { photoLabContext } from '../Context';
 import PhotoList from '../components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
-  const{ toggleModal }= useContext(photoLabContext);
+  const{ toggleModal }= props;
   return (
     <>
     {props.modal &&
@@ -23,7 +23,7 @@ const PhotoDetailsModal = (props) => {
           </defs>
         </svg>
       </button>
-      <PhotoList/>
+      {/* <PhotoList photos={props.modalPhoto.similar_photos}/> */}
       </div>
     }
     </>
