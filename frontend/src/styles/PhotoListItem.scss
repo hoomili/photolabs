@@ -1,11 +1,11 @@
 .photo-list--item {
   margin: 24px;
-  padding: 8px;
-  border-width: 0.5px;
-  border-color: lightgray;
+  padding: 16px;
+  border-width: 1px;
+  border-color: #e6e6e6;
   border-style: solid;
   border-radius: 8px;
-  max-width: fit-content;
+  background-color: white;
 }
 
 .photo-list--image {

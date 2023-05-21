@@ -17,7 +17,7 @@ const PhotoList = (props) => {
     )
   });
   return(
-    <ul className="photo-list">
+    <ul className="photo-list" >
     { newPhotos }
     </ul>
   )
