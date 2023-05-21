@@ -3,9 +3,10 @@ import React, { useContext } from 'react';
 import '../styles/TopicList.scss';
 import TopicListItem from './TopicListItem';
 import { photoLabContext } from '../Context';
+import FavBadge from './FavBadge';
 
 
-const TopicList = () => {
+const TopicList = (props) => {
 
   const{ topics }= useContext(photoLabContext);
 
@@ -23,6 +24,9 @@ const TopicList = () => {
   return (
   <div className="top-nav-bar--topic-list">
     { newTopics }
+    <div>
+      <FavBadge isFavPhotoExist = {props.isFavPhotoExist}/>
+    </div>
   </div>
   )
 }
