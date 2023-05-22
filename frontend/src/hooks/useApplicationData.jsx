@@ -2,15 +2,11 @@ import { useState } from "react";
 
 const photoArr = [];
 const useApplicationData = () => {
-  const [app, setApp] = useState();
   const [modal, setModal] = useState(false);
   const [modalPhoto, setModalPhoto] = useState();
   const [isFavPhotoExist, setIsFavPhotoExist] = useState(false);
   const [updateToFavPhotoIds, setUpdateToFavPhotoIds] = useState(photoArr)
 
-  const appState = () => {
-    setApp();
-  }
 
   const onPhotoSelect = (whichPhoto) => {
     setModal(!modal)
@@ -37,7 +33,6 @@ const useApplicationData = () => {
     }
   }
   const allStates = {
-    state: [app, setApp],
     onPhotoSelect,
     favPhotoId,
     onClosePhotoDetailsModal,

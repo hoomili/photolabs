@@ -8,7 +8,6 @@ import PhotoFavButton from '../components/PhotoFavButton';
 const PhotoDetailsModal = (props) => {
   const similarPhotos = Object.values(props.modalPhoto.similar_photos);
   const { toggleModal } = props;
-  console.log(props.modalPhoto.id);
   return (
     <>
       {props.modal &&

@@ -14,11 +14,10 @@ import PhotoDetailsModal from './routes/PhotoDetailsModal';
 
 const App = () => {
   const {
-    state,
     onPhotoSelect,
     favPhotoId,
-    updateToFavPhotoIds,
     onClosePhotoDetailsModal,
+    updateToFavPhotoIds,
     modalPhoto,
     isFavPhotoExist,
     modal
