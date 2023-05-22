@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useApplicationData from './hooks/useApplicationData';
 
 
 import './App.scss';
@@ -8,49 +9,40 @@ import topics from './mocks/topics';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 
 
+
 // Note: Rendering a single component to build components in isolation
 
 const App = () => {
-  const [modal, setModal] = useState(false);
-  const [modalPhoto, setModalPhoto] = useState();
-  const [countFav, setCountFav] = useState(0);
-  
-  let isFavPhotoExist = true;
-  
-  
-  const toggleModal = (whichPhoto) => {
-    setModal(!modal)
-    setModalPhoto(whichPhoto);
-  }
-
-  const countFavClick = (isadding) => {
-    if(!isadding){
-      setCountFav(countFav + 1)
-    } else {
-      setCountFav(countFav - 1)
-    }
-  }
-
-  if (countFav === 0) {
-    isFavPhotoExist = false;
-  } 
+  const {
+    state,
+    onPhotoSelect,
+    favPhotoId,
+    updateToFavPhotoIds,
+    onClosePhotoDetailsModal,
+    modalPhoto,
+    isFavPhotoExist,
+    modal
+  } = useApplicationData();
 
   return (
       <div className="App">
         <HomeRoute 
-        topics={topics} 
-        photos={photos} 
-        toggleModal={toggleModal} 
-        countFavClick= {countFavClick} 
-        isFavPhotoExist = {isFavPhotoExist}
+          topics={topics} 
+          photos={photos} 
+          toggleModal={onPhotoSelect} 
+          isFavPhotoExist = {isFavPhotoExist}
+          favPhotoId = {favPhotoId}
+          updateToFavPhotoIds = {updateToFavPhotoIds}
         />
-
+        {modal ? 
         <PhotoDetailsModal 
-        modal = {modal} 
-        modalPhoto = {modalPhoto} 
-        toggleModal={toggleModal} 
-        countFavClick= {countFavClick}
-        />
+          modal = {modal} 
+          modalPhoto = {modalPhoto} 
+          toggleModal={onClosePhotoDetailsModal} 
+          favPhotoId = {favPhotoId}
+          updateToFavPhotoIds = {updateToFavPhotoIds}
+        /> : null
+        }
       </div>
 
   );

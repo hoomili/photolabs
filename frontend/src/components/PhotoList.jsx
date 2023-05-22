@@ -5,14 +5,14 @@ import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
   const{ photos }= props;
-
   const newPhotos = photos.map((photo) => {
     return (
       <PhotoListItem 
       key={photo.id}
       photo = {photo}
-      countFavClick= {props.countFavClick}
+      favPhotoId = {props.favPhotoId}
       toggleModal={props.toggleModal}
+      updateToFavPhotoIds = {props.updateToFavPhotoIds}
       />
     )
   });

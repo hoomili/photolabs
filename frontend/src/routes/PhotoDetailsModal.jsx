@@ -6,7 +6,9 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
+  const similarPhotos = Object.values(props.modalPhoto.similar_photos);
   const { toggleModal } = props;
+  console.log(props.modalPhoto.id);
   return (
     <>
       {props.modal &&
@@ -26,7 +28,7 @@ const PhotoDetailsModal = (props) => {
           </button>
           <div className='photo-details-modal-main-image'>
             <div>
-              <PhotoFavButton countFavClick={props.countFavClick} />
+            <PhotoFavButton favPhotoId = {props.favPhotoId} updateToFavPhotoIds = {props.updateToFavPhotoIds} photoId = {props.modalPhoto.id}/>
               <img src={props.modalPhoto.urls.regular} alt={props.modalPhoto.id} className='photo-details-modal--image' />
             </div>
             <div className='photo-details-modal--photographer-details'>
@@ -39,7 +41,11 @@ const PhotoDetailsModal = (props) => {
           </div>
           <div className='photo-details-modal--header'>Related Images</div>
           <div className='photo-details-modal--images'>
-            <PhotoList photos={Object.values(props.modalPhoto.similar_photos)} countFavClick={props.countFavClick} />
+            <PhotoList 
+            photos={similarPhotos}  
+            updateToFavPhotoIds = {props.updateToFavPhotoIds}
+            favPhotoId = {props.favPhotoId}
+            />
           </div>
         </div>
       }

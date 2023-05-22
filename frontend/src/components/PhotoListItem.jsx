@@ -7,9 +7,10 @@ const PhotoListItem = (props) => {
   const{ toggleModal }= props;
   const {photo} = props;
 
+
   return (
   <li key={photo.id} className='photo-list--item'>
-    <PhotoFavButton countFavClick= {props.countFavClick}/>
+    <PhotoFavButton favPhotoId = {props.favPhotoId} updateToFavPhotoIds = {props.updateToFavPhotoIds} photoId = {photo.id}/>
     <img className='photo-list--image' src={photo.urls.full} alt={photo.id} onClick={() => toggleModal(photo)}/>
     {photo.hideUserName ? "" : 
       <div className='photo-list--user-details'>
