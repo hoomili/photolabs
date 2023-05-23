@@ -1,4 +1,4 @@
-# react-photolabs
+# React-Photolabs
 PhotoLabs is a React-based single-page application (SPA) that allows users to view photos in different contexts. It used a pre-existing API to build a front-end user experience for users to interact with photos!
 
 To complete this project I used different functionality of react such as state management, reducers, useEffects, and etc.
