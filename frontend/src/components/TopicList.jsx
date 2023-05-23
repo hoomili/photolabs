@@ -17,6 +17,7 @@ const TopicList = (props) => {
         title={topic.title}
         id={topic.id}
         slug={topic.slug}
+        setId = {props.setId} 
       />
     )
   });

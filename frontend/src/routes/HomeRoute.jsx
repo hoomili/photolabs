@@ -11,7 +11,11 @@ const HomeRoute = (props) => {
   return (
   <div className="home-route">
 
-      <TopNavigation isFavPhotoExist = {props.isFavPhotoExist} topics={props.topics} />
+      <TopNavigation 
+        isFavPhotoExist = {props.isFavPhotoExist} 
+        topics={props.topics}
+        setId = {props.setId} 
+      />
       <PhotoList 
         photos={props.photos} 
         toggleModal={props.toggleModal} 

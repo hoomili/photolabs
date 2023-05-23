@@ -9,7 +9,11 @@ const TopNavigation = (props) => {
     <div className="top-nav-bar">
       <div className="top-nav-bar--logo">PhotoLabs</div>
       <div>
-        <span><TopicList isFavPhotoExist = {props.isFavPhotoExist} topics={props.topics}/></span>
+        <span><TopicList 
+          isFavPhotoExist = {props.isFavPhotoExist} 
+          topics={props.topics}
+          setId = {props.setId} 
+        /></span>
       </div>
     </div>
   )
