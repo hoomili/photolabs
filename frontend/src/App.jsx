@@ -21,7 +21,11 @@ const App = () => {
     isFavPhotoExist,
     modal,
     setId,
-    id
+    id,
+    favorites,
+    viewFavorites,
+    home,
+    viewHome
   } = useApplicationData();
 
   // Initial data fetching from the db
@@ -34,6 +38,15 @@ const App = () => {
       .then(res => setTopics(res));
   }, []);
 
+  useEffect(() => {
+    if(home) {
+      fetch('/api/photos')
+        .then(res => res.json())
+        .then(res => setPhotos(res));
+      }
+    }, [home]);
+
+
   // updating the photos based on category ID
   useEffect(() => {
     if (id) {
@@ -42,6 +55,22 @@ const App = () => {
         .then(res => setPhotos(res));
     }
   }, [id]);
+
+  useEffect(() => {
+    if(favorites) {
+      if (updateToFavPhotoIds.length > 0) {
+        console.log('I am here');
+        fetch('/api/photos')
+          .then(res => res.json())
+          .then(res => {
+            const favoriteArray = res.filter(photo => updateToFavPhotoIds.includes(photo.id))
+            setPhotos(favoriteArray)
+          });
+      } else {
+        setPhotos([])
+      }
+    }
+  }, [favorites, updateToFavPhotoIds]);
 
   return (
     <div className="App">
@@ -53,6 +82,8 @@ const App = () => {
         favPhotoId={favPhotoId}
         updateToFavPhotoIds={updateToFavPhotoIds}
         setId={setId}
+        viewFavorites={viewFavorites}
+        viewHome={viewHome}
       />
       {modal ?
         <PhotoDetailsModal

@@ -13,6 +13,8 @@ const HomeRoute = (props) => {
         isFavPhotoExist={props.isFavPhotoExist}
         topics={props.topics}
         setId={props.setId}
+        viewFavorites={props.viewFavorites}
+        viewHome={props.viewHome}
       />
       <PhotoList
         photos={props.photos}

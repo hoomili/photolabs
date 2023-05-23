@@ -10,7 +10,9 @@ export const ACTIONS = {
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   FAV_ICON_NOTIFICATION_ON: 'FAV_ICON_NOTIFICATION_ON',
   FAV_ICON_NOTIFICATION_OFF: 'FAV_ICON_NOTIFICATION_OFF',
-  CHANGE_CATEGORY_ID: 'CHANGE_CATEGORY_ID'
+  CHANGE_CATEGORY_ID: 'CHANGE_CATEGORY_ID',
+  FAVORITE_PHOTOS: 'FAVORITE_PHOTOS',
+  SET_HOME: 'SET_HOME'
 };
 
 //setting initial values for the state
@@ -20,6 +22,8 @@ const init = {
   isFavPhotoExist: false,
   updateToFavPhotoIds: [],
   id: null,
+  favorites: false,
+  home: false
 };
 
 const useApplicationData = () => {
@@ -54,7 +58,20 @@ const useApplicationData = () => {
   // Changes the category ID to activate the new photo data based on that category
   const setId = (id) => {
     dispatch({ type: ACTIONS.CHANGE_CATEGORY_ID, payload: { id: id } });
+    dispatch({type: ACTIONS.FAVORITE_PHOTOS, payload: { favorites: false }})
+    dispatch({type: ACTIONS.SET_HOME, payload: { home: false } })
   };
+
+  const viewFavorites = () => {
+    dispatch({type: ACTIONS.FAVORITE_PHOTOS, payload: { favorites: true } })
+    dispatch({type: ACTIONS.SET_HOME, payload: { home: false } })
+  }
+  
+  const viewHome = () => {
+    dispatch({type: ACTIONS.FAVORITE_PHOTOS, payload: { favorites: false }})
+    dispatch({type: ACTIONS.SET_HOME, payload: { home: true } })
+  }
+
 
   // exporting all the required functions and states
   const allStates = {
@@ -62,6 +79,8 @@ const useApplicationData = () => {
     favPhotoId,
     onClosePhotoDetailsModal,
     setId,
+    viewFavorites,
+    viewHome,
     ...state
   };
   return allStates;

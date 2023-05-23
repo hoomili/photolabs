@@ -26,7 +26,13 @@ function reducer(state, action) {
 
     case ACTIONS.CHANGE_CATEGORY_ID: // Changes the category ID to activate the new photo data based on that category
       return { ...state, id: action.payload.id };
+    
+    case ACTIONS.FAVORITE_PHOTOS:
+      return { ...state, favorites: action.payload.favorites }
+    
+    case ACTIONS.SET_HOME:
 
+      return { ...state, home: action.payload.home }
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`

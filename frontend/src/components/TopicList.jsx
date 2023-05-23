@@ -25,7 +25,7 @@ const TopicList = (props) => {
     <div className="top-nav-bar--topic-list">
       {newTopics}
       <div>
-        <FavBadge isFavPhotoExist={props.isFavPhotoExist} />
+        <FavBadge isFavPhotoExist={props.isFavPhotoExist} viewFavorites={props.viewFavorites}/>
       </div>
     </div>
   );
