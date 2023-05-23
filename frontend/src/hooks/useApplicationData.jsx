@@ -57,7 +57,6 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.CHANGE_CATEGORY_ID, payload: { id: id } });
   };
 
-
   // exporting all the required functions and states
   const allStates = {
     onPhotoSelect,

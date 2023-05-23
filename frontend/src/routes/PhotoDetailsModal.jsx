@@ -27,7 +27,7 @@ const PhotoDetailsModal = (props) => {
           </button>
           <div className='photo-details-modal-main-image'>
             <div>
-            <PhotoFavButton favPhotoId = {props.favPhotoId} updateToFavPhotoIds = {props.updateToFavPhotoIds} photoId = {props.modalPhoto.id}/>
+              <PhotoFavButton favPhotoId={props.favPhotoId} updateToFavPhotoIds={props.updateToFavPhotoIds} photoId={props.modalPhoto.id} />
               <img src={props.modalPhoto.urls.regular} alt={props.modalPhoto.id} className='photo-details-modal--image' />
             </div>
             <div className='photo-details-modal--photographer-details'>
@@ -40,10 +40,10 @@ const PhotoDetailsModal = (props) => {
           </div>
           <div className='photo-details-modal--header'>Related Images</div>
           <div className='photo-details-modal--images'>
-            <PhotoList 
-            photos={similarPhotos}  
-            updateToFavPhotoIds = {props.updateToFavPhotoIds}
-            favPhotoId = {props.favPhotoId}
+            <PhotoList
+              photos={similarPhotos}
+              updateToFavPhotoIds={props.updateToFavPhotoIds}
+              favPhotoId={props.favPhotoId}
             />
           </div>
         </div>

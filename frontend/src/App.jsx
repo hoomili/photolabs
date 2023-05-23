@@ -6,8 +6,6 @@ import './App.scss';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 
-
-
 // Note: Rendering a single component to build components in isolation
 
 const App = () => {
@@ -45,8 +43,6 @@ const App = () => {
     }
   }, [id]);
 
-
-
   return (
     <div className="App">
       <HomeRoute
@@ -65,7 +61,7 @@ const App = () => {
           toggleModal={onClosePhotoDetailsModal}
           favPhotoId={favPhotoId}
           updateToFavPhotoIds={updateToFavPhotoIds}
-        /> : null }
+        /> : null}
     </div>
 
   );

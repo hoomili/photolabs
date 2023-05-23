@@ -4,27 +4,25 @@ import '../styles/HomeRoute.scss';
 import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
-
-
 const HomeRoute = (props) => {
 
   return (
-  <div className="home-route">
+    <div className="home-route">
 
-      <TopNavigation 
-        isFavPhotoExist = {props.isFavPhotoExist} 
+      <TopNavigation
+        isFavPhotoExist={props.isFavPhotoExist}
         topics={props.topics}
-        setId = {props.setId} 
+        setId={props.setId}
       />
-      <PhotoList 
-        photos={props.photos} 
-        toggleModal={props.toggleModal} 
-        favPhotoId = {props.favPhotoId} 
-        updateToFavPhotoIds = {props.updateToFavPhotoIds}
+      <PhotoList
+        photos={props.photos}
+        toggleModal={props.toggleModal}
+        favPhotoId={props.favPhotoId}
+        updateToFavPhotoIds={props.updateToFavPhotoIds}
       />
 
-  </div>
-  )
-}
+    </div>
+  );
+};
 
 export default HomeRoute;

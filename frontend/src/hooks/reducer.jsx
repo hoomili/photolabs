@@ -30,7 +30,6 @@ function reducer(state, action) {
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
-
       );
   }
 }

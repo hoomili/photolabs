@@ -1,6 +1,6 @@
 .photo-details-modal {
   background-color: white;
-  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .5);
   position: absolute;
   top: 40%;
   left: 50%;
@@ -10,6 +10,7 @@
   overflow-y: scroll;
   border-radius: 12px;
 }
+
 .photo-details-modal-main-image {
   display: flex;
   flex-direction: column;

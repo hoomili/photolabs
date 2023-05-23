@@ -5,23 +5,24 @@ import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
 
-  const{ photos }= props;
+  const { photos } = props;
   const newPhotos = photos.map((photo) => {
     return (
-      <PhotoListItem 
-      key={photo.id}
-      photo = {photo}
-      favPhotoId = {props.favPhotoId}
-      toggleModal={props.toggleModal}
-      updateToFavPhotoIds = {props.updateToFavPhotoIds}
+      <PhotoListItem
+        key={photo.id}
+        photo={photo}
+        favPhotoId={props.favPhotoId}
+        toggleModal={props.toggleModal}
+        updateToFavPhotoIds={props.updateToFavPhotoIds}
       />
-    )
+    );
   });
-  return(
+  
+  return (
     <ul className="photo-list" >
-    { newPhotos }
+      {newPhotos}
     </ul>
-  )
-}
+  );
+};
 
-export default PhotoList
+export default PhotoList;
