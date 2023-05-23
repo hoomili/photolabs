@@ -18,9 +18,19 @@ To have a glance at the app, please see the screenshots below. To access the ful
 # ScreenShots
 
 !["Home page"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Home-Page.png?raw=true)
+<p style="text-align:center"> Home page </p>
+<br />
+
 !["Animal category with likes"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Animal-Category-With-Likes.png?raw=true)
+<p style="text-align:center"> Animal category with likes </p>
+<br />
+
 !["Detail view of image"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Detail-View-Of-Image.png?raw=true)
+<p style="text-align:center"> Detail view of image </p>
+<br />
+
 !["Related photos"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Related-Photos.png?raw=true)
+<p style="text-align:center"> Related photos </p>
 
 ## Setup
 
