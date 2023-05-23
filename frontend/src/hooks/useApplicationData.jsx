@@ -1,70 +1,71 @@
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
+import reducer from "./reducer";
 
-const photoArr = [];
+export const ACTIONS = {
+  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
+  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SELECT_PHOTO: 'SELECT_PHOTO',
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  FAV_ICON_NOTIFICATION_ON: 'FAV_ICON_NOTIFICATION_ON',
+  FAV_ICON_NOTIFICATION_OFF: 'FAV_ICON_NOTIFICATION_OFF',
+  CHANGE_CATEGORY_ID: 'CHANGE_CATEGORY_ID'
+};
+
+//setting initial values for the state
+const init = {
+  modal: false,
+  modalPhoto: null,
+  isFavPhotoExist: false,
+  updateToFavPhotoIds: [],
+  id: null,
+};
+
 const useApplicationData = () => {
-  const [modal, setModal] = useState(false);
-  const [modalPhoto, setModalPhoto] = useState();
-  const [isFavPhotoExist, setIsFavPhotoExist] = useState(false);
-  const [updateToFavPhotoIds, setUpdateToFavPhotoIds] = useState(photoArr)
 
+  const [state, dispatch] = useReducer(reducer, init);
 
+  // activate modal with the selected photo info
   const onPhotoSelect = (whichPhoto) => {
-    setModal(!modal)
-    setModalPhoto(whichPhoto);
-  }
+    console.log(whichPhoto);
+    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: { photo: whichPhoto } });
+    dispatch({ type: ACTIONS.SELECT_PHOTO });
+  };
 
+  // close the modal with the close button
   const onClosePhotoDetailsModal = () => {
-    setModal(!modal)
-  }
+    dispatch({ type: ACTIONS.SELECT_PHOTO });
+  };
 
+  // Add or remove the photo id for activating favorite icons around the app
   const favPhotoId = (newId) => {
-    let copyUpdateToFavPhotoIds = [...updateToFavPhotoIds];
-    if (copyUpdateToFavPhotoIds.find(item => item === newId)) {
-      const index = copyUpdateToFavPhotoIds.indexOf(newId);
-      copyUpdateToFavPhotoIds.splice(index,1)
+    const index = state.updateToFavPhotoIds.indexOf(newId);
+    if (index !== -1) {
+      if (state.updateToFavPhotoIds.length === 1) {
+        dispatch({ type: ACTIONS.FAV_ICON_NOTIFICATION_OFF });
+      }
+      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { index } });
     } else {
-      copyUpdateToFavPhotoIds.push(newId)
+      dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { newId: newId } });
+      dispatch({ type: ACTIONS.FAV_ICON_NOTIFICATION_ON, index });
     }
-    setUpdateToFavPhotoIds(copyUpdateToFavPhotoIds)
-    if(copyUpdateToFavPhotoIds.length > 0){
-      setIsFavPhotoExist(true)
-    } else {
-      setIsFavPhotoExist(false)
-    }
-  }
+  };
+
+  // Changes the category ID to activate the new photo data based on that category
+  const setId = (id) => {
+    dispatch({ type: ACTIONS.CHANGE_CATEGORY_ID, payload: { id: id } });
+  };
+
+
+
   const allStates = {
     onPhotoSelect,
     favPhotoId,
     onClosePhotoDetailsModal,
-    modalPhoto,
-    isFavPhotoExist,
-    modal,
-    updateToFavPhotoIds
-  }
+    setId,
+    ...state
+  };
   return allStates;
-
-  
-}
-
-
-// export const ACTIONS = {
-//   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
-//   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
-//   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-//   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-//   SELECT_PHOTO: 'SELECT_PHOTO',
-//   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
-// }
-
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case FAV_PHOTO_ADDED:
-//       return { /* insert logic */ }
-//     { /* insert all relevant actions as case statements*/ }  
-//     }
-//     default:
-//       throw new Error(
-//         `Tried to reduce with unsupported action type: ${action.type}`
-//       );
-//   }
-export default useApplicationData
+};
+export default useApplicationData;
