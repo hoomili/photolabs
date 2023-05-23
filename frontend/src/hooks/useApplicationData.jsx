@@ -28,7 +28,6 @@ const useApplicationData = () => {
 
   // activate modal with the selected photo info
   const onPhotoSelect = (whichPhoto) => {
-    console.log(whichPhoto);
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: { photo: whichPhoto } });
     dispatch({ type: ACTIONS.SELECT_PHOTO });
   };
