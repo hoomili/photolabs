@@ -15,6 +15,12 @@ To go back to the homepage, the user can click on the page logo to refresh the p
 
 To have a glance at the app, please see the screenshots below. To access the full project, please fork and clone the project and read through the setup section.
 
+# ScreenShots
+
+!["Home page"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Home-Page.png?raw=true)
+!["Animal category with likes"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Animal-Category-With-Likes.png?raw=true)
+!["Detail view of image"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Detail-View-Of-Image.png?raw=true)
+!["Related photos"](https://github.com/hoomili/photolabs-starter/blob/main/docs/Related-Photos.png?raw=true)
 
 ## Setup
 
