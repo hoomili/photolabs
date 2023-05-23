@@ -58,7 +58,7 @@ const useApplicationData = () => {
   };
 
 
-
+  // exporting all the required functions and states
   const allStates = {
     onPhotoSelect,
     favPhotoId,

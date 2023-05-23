@@ -11,7 +11,6 @@ import PhotoDetailsModal from './routes/PhotoDetailsModal';
 // Note: Rendering a single component to build components in isolation
 
 const App = () => {
-
   const [photos, setPhotos] = useState([]);
   const [topics, setTopics] = useState([]);
 
@@ -27,6 +26,7 @@ const App = () => {
     id
   } = useApplicationData();
 
+  // Initial data fetching from the db
   useEffect(() => {
     fetch('/api/photos')
       .then(res => res.json())
@@ -36,7 +36,7 @@ const App = () => {
       .then(res => setTopics(res));
   }, []);
 
-  
+  // updating the photos based on category ID
   useEffect(() => {
     if (id) {
       fetch(`/api/topics/photos/${id}`)
