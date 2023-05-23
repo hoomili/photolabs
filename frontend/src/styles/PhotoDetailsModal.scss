@@ -2,7 +2,7 @@
   background-color: white;
   box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .5);
   position: absolute;
-  top: 40%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -40%);
   height: 80%;
@@ -34,14 +34,14 @@
 }
 
 .photo-details-modal--images {
-  margin-left: 36px;
+  margin: 0 36px;
   margin-top: 8px;
 
 }
 
 .photo-details-modal--image {
   max-width: 95%;
-  height: 500px;
+  height: 600px;
 }
 
 .photo-details-modal--top-bar {
@@ -57,14 +57,14 @@
   display: flex;
   font-size: 16px;
   align-self: self-start;
+  margin-left: 20px;
 }
 
 .photo-details-modal--header {
   font-size: 18px;
   font-weight: 500;
   color: #1e1e1e;
-  margin-bottom: 24px;
+  margin: 24px 36px;
   width: 90%;
-  margin-left: 16px;
-  margin-top: 24px;
+
 }
