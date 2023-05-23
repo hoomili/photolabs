@@ -7,7 +7,7 @@ import TopicList from './TopicList';
 const TopNavigation = (props) => {
   return (
     <div className="top-nav-bar">
-      <div className="top-nav-bar--logo">PhotoLabs</div>
+      <div className="top-nav-bar--logo" onClick={() => window.location.reload(false)}>PhotoLabs</div>
       <div>
         <span><TopicList 
           isFavPhotoExist = {props.isFavPhotoExist} 
